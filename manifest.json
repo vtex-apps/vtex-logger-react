@@ -1,18 +1,26 @@
 {
-  "vendor": "CHANGE_ME",
-  "name": "CHANGE_ME",
-  "version": "0.0.0",
-  "title": "CHANGE_ME",
-  "description": "CHANGE_ME",
+  "name": "vtex-logger-react",
+  "vendor": "vtexarg",
+  "version": "0.0.1",
+  "title": "Vtex Logger React",
+  "description": "Vtex Logger React",
   "builders": {
     "react": "3.x",
     "messages": "1.x",
     "docs": "0.x"
   },
   "dependencies": {},
-  "registries": [
-    "smartcheckout"
-  ],
+  "peerDependencies": {
+    "vtexarg.vtex-logger-graphql": "0.x"
+  },
+  "registries": ["smartcheckout"],
   "policies": [],
-  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
+  "billingOptions": {
+    "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    },
+    "type": "free",
+    "availableCountries": ["*"]
+  }
 }
