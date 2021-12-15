@@ -8,15 +8,20 @@ interface VtexLoggerProps {
   detail: any
 }
 
-export const useLoggerVtex = () => {
+const useLoggerVtex = () => {
   const [loggerMutation] = useMutation(logger)
 
   const useLog = async ({ message, detail }: VtexLoggerProps) => {
     console.info(message, detail)
-    await loggerMutation({
+
+    const loggerResponse = await loggerMutation({
       variables: { message, detail: JSON.stringify(detail) },
     })
+
+    return loggerResponse
   }
 
   return { useLog }
 }
+
+export default useLoggerVtex
