@@ -1,93 +1,114 @@
-📢 Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+📢 Use this project, [contribute](https://github.com/vtex-apps/product-context) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-# APP NAME
+# VTEX Logger React
 
-<!-- DOCS-IGNORE:start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- DOCS-IGNORE:end -->
 
-Under the app's name, you should explain the topic, giving a **brief description** of its **functionality** in a store when installed.
+The VTEX Logger React app will help to make log entries in the VTEX IO Logging Service on React Apps.
 
-Next, **add media** (either an image of a GIF) with the rendered components, so that users can better understand how the app works in practice. 
+## Configuration
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+1. Add the `vtex-logger-react` app as a dependency in you theme's `manifest.json` file:
 
-## Configuration 
+```diff
+  "dependencies": {
++   "vtex.vtex-logger-react": "0.x"
+  }
+```
 
-In this section, you first must **add the primary instructions** that will allow users to use the app's blocks in their store, such as:
+Now, you can import any of the exported components and hooks from the app. Here's an example of a component that use the `useLog` hook from the `useLoggerVtex` to log some relevant info:
 
-1. Adding the app as a theme dependency in the `manifest.json` file;
-2. Declaring the app's main block in a given theme template or inside another block from the theme.
+```tsx
+// Notice that this is TypeScript, and this code should be in a .tsx file
+import React, { FC } from 'react'
+import { useLoggerVtex } from 'vtexarg.vtex-logger-react'
+import { Button } from 'vtex.styleguide'
 
-Remember to add a table with all blocks exported by the app and their descriptions. You can verify an example of it on the [Search Result documentation](https://vtex.io/docs/components/all/vtex.search-result@3.56.1/). 
+const MyComponent: FC = () => {
+  const { useLog } = useLoggerVtex()
+  const exampleDetail = {
+    id: '1',
+    name: 'Test Name',
+    description: 'Test Description',
+    price: '100',
+    quantity: '1',
+    brand: 'Test Brand',
+    category: 'Test Category',
+  }
 
-Next, add the **props table** containing your block's props. 
+  const handleClickLog = async () => {
+    const appName = 'my-app'
+    const message = 'Test log'
+    await useLog({ app: appName, message: message, detail: exampleDetail })
+  }
 
-If the app exports more than one block, create several tables - one for each block. For example:
+  return (
+    <Fragment>
+      <Button onClick={handleClickLog} />
+    </Fragment>
+  )
+}
 
-### `block-1` props
+export default MyComponent
+```
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+:warning: _Be sure to run `vtex setup --typings` in your project to install the correct TypeScript types exported by this app._
 
+### Hooks
 
-### `block-2` props
+#### `useLog`
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+This is the most useful export from this app. The `useLog` hook can be used to log messages to the VTEX IO Logging Service.
 
-Prop types are: 
+It needs to recieve:
 
-- `string` 
-- `enum` 
-- `number` 
-- `boolean` 
-- `object` 
-- `array` 
+- `app`: The app name that want to log the message.
+- `message`: The message to be logged.
+- `detail`: An object with the details of the log. It can be any JSON-serializable object.
 
-When documenting a prop whose type is `object` or `array` another prop table will be needed. You can create it following the example below:
+```ts
+interface VtexLoggerProps {
+  app: string
+  message: string
+  detail: any
+}
+```
 
-- `propName` object:
+You should expect an object that looks like this:
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+```json
+{
+  "logger": {
+    "status": 200
+  }
+}
+```
 
+Always check the `status` property to know if the log was successful.
 
-Remember to also use this Configuration section to  **showcase any necessary disclaimer** related to the app and its blocks, such as the different behavior it may display during its configuration. 
-
-## Modus Operandi *(not mandatory)*
-
-There are scenarios in which an app can behave differently in a store, according to how it was added to the catalog, for example. It's crucial to go through these **behavioral changes** in this section, allowing users to fully understand the **practical application** of the app in their store.
-
-If you feel compelled to give further details about the app, such as it's **relationship with the VTEX admin**, don't hesitate to use this section. 
-
-## Customization
-
-The first thing that should be present in this section is the sentence below, showing users the recipe pertaining to CSS customization in apps:
-
-`In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
-
-Thereafter, you should add a single column table with the available CSS handles for the app, like the one below. Note that the Handles must be ordered alphabetically.
-
-| CSS Handles |
-| ----------- | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` |
-
-
-If there are none, add the following sentence instead:
-
-`No CSS Handles are available yet for the app customization.`
+:information*source: \_To have the full type definition in your development environment, be sure to run `vtex setup` in your project to install all TypeScript types exported by this app.*
 
 <!-- DOCS-IGNORE:start -->
+
+## Review the Logs (Splunk)
+
+With this query you can retrieve the logs from Splunk, filtering by `app`:
+
+```
+index=io_vtex_logs app="vtex.vtex-logger-graphql@0.0.1" account={account} workspace={workspace} | spath "data.app" | search "data.app"={app}
+```
+
+Example:
+
+```
+index=io_vtex_logs app="vtex.vtex-logger-graphql@0.0.1" account=gbonacchi workspace=customstockexport | spath "data.app" | search "data.app"="my-app"
+```
+
+![image](https://user-images.githubusercontent.com/55905671/146546432-2a1df845-5d46-4f5d-8ba5-049fed2b0efc.png)
 
 ## Contributors ✨
 
@@ -96,19 +117,17 @@ Thanks goes to these wonderful people:
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/germanBonacchi"><img src="https://avatars.githubusercontent.com/u/55905671?v=4" width="100px;" alt=""/><br /><sub><b>Germán Bonacchi</b></sub></a><br /><a href="https://github.com/vtex-apps/vtex-logger-react/commits?author=germanBonacchi" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 <!-- DOCS-IGNORE:end -->
-
----- 
-
-Check out some documentation models that are already live: 
-- [Breadcrumb](https://github.com/vtex-apps/breadcrumb)
-- [Image](https://vtex.io/docs/components/general/vtex.store-components/image)
-- [Condition Layout](https://vtex.io/docs/components/all/vtex.condition-layout@1.1.6/)
-- [Add To Cart Button](https://vtex.io/docs/components/content-blocks/vtex.add-to-cart-button@0.9.0/)
-- [Store Form](https://vtex.io/docs/components/all/vtex.store-form@0.3.4/)
