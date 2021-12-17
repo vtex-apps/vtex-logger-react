@@ -1,7 +1,7 @@
 {
   "name": "vtex-logger-react",
   "vendor": "vtex",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "title": "Vtex Logger React",
   "description": "Vtex Logger React",
   "builders": {
