@@ -4,6 +4,7 @@ import { useMutation } from 'react-apollo'
 import logger from './graphql/logger.gql'
 
 interface VtexLoggerProps {
+  app: string
   message: string
   detail: any
 }
@@ -11,11 +12,9 @@ interface VtexLoggerProps {
 const useLoggerVtex = () => {
   const [loggerMutation] = useMutation(logger)
 
-  const useLog = async ({ message, detail }: VtexLoggerProps) => {
-    console.info(message, detail)
-
+  const useLog = async ({ app, message, detail }: VtexLoggerProps) => {
     const loggerResponse = await loggerMutation({
-      variables: { message, detail: JSON.stringify(detail) },
+      variables: { app, message, detail: JSON.stringify(detail) },
     })
 
     return loggerResponse

@@ -1,6 +1,6 @@
-mutation logger($message: String, $detail: String) {
-  logger(message: $message, detail: $detail)
-    @context(provider: "vtexarg.vtex-logger-graphql") {
+mutation logger($app: String, $message: String, $detail: String) {
+  logger(app: $app, message: $message, detail: $detail)
+    @context(provider: "vtex.vtex-logger-graphql") {
     status
   }
 }
