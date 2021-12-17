@@ -4950,13 +4950,9 @@ verror@1.10.0:
   version "8.132.3"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime#c7dd142e384f38bd7a7c841543b73e9349fadc93"
 
-"vtex.vtex-logger-graphql@https://customstockexport--gbonacchi.myvtex.com/_v/private/typings/linked/v1/vtex.vtex-logger-graphql@0.0.1+build1639670172/public/@types/vtex.vtex-logger-graphql":
-  version "0.0.1"
-  resolved "https://customstockexport--gbonacchi.myvtex.com/_v/private/typings/linked/v1/vtex.vtex-logger-graphql@0.0.1+build1639670172/public/@types/vtex.vtex-logger-graphql#247ce19407f1fc7a874ac2e3f42559588798687d"
-
-"vtex.vtex-logger-react@https://customstockexport--gbonacchi.myvtex.com/_v/private/typings/linked/v1/vtex.vtex-logger-react@0.0.1+build1639670226/public/@types/vtex.vtex-logger-react":
-  version "0.0.1"
-  resolved "https://customstockexport--gbonacchi.myvtex.com/_v/private/typings/linked/v1/vtex.vtex-logger-react@0.0.1+build1639670226/public/@types/vtex.vtex-logger-react#e2a3e1a56282c6348430ece811fc8a3cd20ddb31"
+"vtex.vtex-logger-graphql@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.vtex-logger-graphql@0.2.0/public/@types/vtex.vtex-logger-graphql":
+  version "0.2.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.vtex-logger-graphql@0.2.0/public/@types/vtex.vtex-logger-graphql#a186031a9600e002d34cad79d79a8f800bd1ac0e"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

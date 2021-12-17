@@ -22,7 +22,6 @@
     "graphql": "^14.6.0",
     "typescript": "3.9.7",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.3/public/@types/vtex.render-runtime",
-    "vtex.vtex-logger-graphql": "https://customstockexport--gbonacchi.myvtex.com/_v/private/typings/linked/v1/vtex.vtex-logger-graphql@0.0.1+build1639670172/public/@types/vtex.vtex-logger-graphql",
-    "vtex.vtex-logger-react": "https://customstockexport--gbonacchi.myvtex.com/_v/private/typings/linked/v1/vtex.vtex-logger-react@0.0.1+build1639670226/public/@types/vtex.vtex-logger-react"
+    "vtex.vtex-logger-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.vtex-logger-graphql@0.2.0/public/@types/vtex.vtex-logger-graphql"
   }
 }
