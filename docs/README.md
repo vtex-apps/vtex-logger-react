@@ -16,7 +16,7 @@ The VTEX Logger React app will help to make log entries in the VTEX IO Logging S
 
 ```diff
   "dependencies": {
-+   "vtex.vtex-logger-react": "0.x"
++   "vtex.vtex-logger-react": "1.x"
   }
 ```
 
@@ -99,13 +99,13 @@ Always check the `status` property to know if the log was successful.
 With this query you can retrieve the logs from Splunk, filtering by `app`:
 
 ```
-index=io_vtex_logs app="vtex.vtex-logger-graphql@0.0.1" account={account} workspace={workspace} | spath "data.app" | search "data.app"={app}
+index=io_vtex_logs app="vtex.vtex-logger-graphql@0.2.0" account={account} workspace={workspace} | spath "data.app" | search "data.app"={app}
 ```
 
 Example:
 
 ```
-index=io_vtex_logs app="vtex.vtex-logger-graphql@0.0.1" account=gbonacchi workspace=customstockexport | spath "data.app" | search "data.app"="my-app"
+index=io_vtex_logs app="vtex.vtex-logger-graphql@0.2.0" account=gbonacchi workspace=customstockexport | spath "data.app" | search "data.app"="my-app"
 ```
 
 ![image](https://user-images.githubusercontent.com/55905671/146546432-2a1df845-5d46-4f5d-8ba5-049fed2b0efc.png)
