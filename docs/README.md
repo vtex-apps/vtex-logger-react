@@ -25,7 +25,7 @@ Now, you can import any of the exported components and hooks from the app. Here'
 ```tsx
 // Notice that this is TypeScript, and this code should be in a .tsx file
 import React, { FC } from 'react'
-import { useLoggerVtex } from 'vtexarg.vtex-logger-react'
+import { useLoggerVtex } from 'vtex.vtex-logger-react'
 import { Button } from 'vtex.styleguide'
 
 const MyComponent: FC = () => {
