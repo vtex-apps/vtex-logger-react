@@ -1,8 +1,3 @@
-#  ⚠️ Maintenance ⚠️
-*Starting June 1st 2023, this application will no longer be maintained by VTEX. The VTEX repository shall remain archived private and unchanged with the original version. Please don't share this repository with anyone external to VTEX. Internal questions only for VTEXers in this [Slack channel](https://app.slack.com/client/T02BCPD0X/C022S6QNM5X).*
-
-# ---
-
 # VTEX Logger React
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -10,6 +5,11 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+##  ⚠️ Maintenance ⚠️
+*Starting June 1st 2023, this application will no longer be maintained by VTEX.*
+
+---
 
 The VTEX Logger React app will help to make log entries in the VTEX IO Logging Service on React Apps.
 
