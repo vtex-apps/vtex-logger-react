@@ -1,15 +1,14 @@
 # VTEX Logger React
 
+[<i class="fa-brands fa-github"></i> Source code](https://github.com/vtex-apps/vtex-logger-react)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-##  ⚠️ Maintenance ⚠️
-*Starting June 1st 2023, this application will no longer be maintained by VTEX.*
-
----
+> ⚠️ This app is no longer maintained by VTEX. This means support and maintenance are no longer provided.
 
 The VTEX Logger React app will help to make log entries in the VTEX IO Logging Service on React Apps.
 
