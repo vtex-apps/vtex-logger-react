@@ -1,21 +1,14 @@
 # VTEX Logger React
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[<i class="fa-brands fa-github"></i> Source code](https://github.com/vtex-apps/vtex-logger-react)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+> ⚠️ This app is no longer maintained by VTEX. This means support and maintenance are no longer provided.
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-##  ⚠️ Maintenance ⚠️
-*Starting June 1st 2023, this application will no longer be maintained by VTEX.*
-
----
-
-The VTEX Logger React app will help to make log entries in the VTEX IO Logging Service on React Apps.
+The VTEX Logger React app helps make log entries in the VTEX IO Logging Service for React Apps.
 
 ## Configuration
 
-1. Add the `vtex-logger-react` app as a dependency in you theme's `manifest.json` file:
+1. Add the `vtex-logger-react` app as a dependency in your theme's `manifest.json` file:
 
 ```diff
   "dependencies": {
@@ -23,7 +16,7 @@ The VTEX Logger React app will help to make log entries in the VTEX IO Logging S
   }
 ```
 
-Now, you can import any of the exported components and hooks from the app. Here's an example of a component that use the `useLog` hook from the `useLoggerVtex` to log some relevant info:
+Now you can import any exported components or hooks from the app. Here's an example of a component that uses the `useLog` hook from the `useLoggerVtex` to log some relevant info:
 
 ```tsx
 // Notice that this is TypeScript, and this code should be in a .tsx file
@@ -59,7 +52,7 @@ const MyComponent: FC = () => {
 export default MyComponent
 ```
 
-:warning: _Be sure to run `vtex setup --typings` in your project to install the correct TypeScript types exported by this app._
+> ⚠️ Run `vtex setup --typings` in your project to install the correct TypeScript types exported by this app.
 
 ### Hooks
 
@@ -67,9 +60,9 @@ export default MyComponent
 
 This is the most useful export from this app. The `useLog` hook can be used to log messages to the VTEX IO Logging Service.
 
-It needs to recieve:
+It needs to receive:
 
-- `app`: The app name that want to log the message.
+- `app`: The app name that wants to log the message.
 - `message`: The message to be logged.
 - `detail`: An object with the details of the log. It can be any JSON-serializable object.
 
@@ -93,25 +86,7 @@ You should expect an object that looks like this:
 
 Always check the `status` property to know if the log was successful.
 
-:information*source: \_To have the full type definition in your development environment, be sure to run `vtex setup` in your project to install all TypeScript types exported by this app.*
-
-<!-- DOCS-IGNORE:start -->
-
-## Review the Logs (Splunk)
-
-With this query you can retrieve the logs from Splunk, filtering by `app`:
-
-```
-index=io_vtex_logs app="vtex.vtex-logger-graphql@0.2.0" account={account} workspace={workspace} | spath "data.app" | search "data.app"={app}
-```
-
-Example:
-
-```
-index=io_vtex_logs app="vtex.vtex-logger-graphql@0.2.0" account=gbonacchi workspace=customstockexport | spath "data.app" | search "data.app"="my-app"
-```
-
-![image](https://user-images.githubusercontent.com/55905671/146546432-2a1df845-5d46-4f5d-8ba5-049fed2b0efc.png)
+> To have the full type definition in your development environment, be sure to run `vtex setup` in your project to install all TypeScript types exported by this app.
 
 ## Contributors ✨
 
